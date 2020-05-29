@@ -1,0 +1,42 @@
+@import 'variables';
+
+@mixin mobile {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  }
+@mixin desktop {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+@mixin desktop-deeper {
+    @media screen and (min-width: $desktop-deeper) {
+      @content;
+    }
+}
+@mixin margins {
+  @include mobile {
+    padding: 32px 16px;
+  }
+  @include tablet {
+    padding: 48px 24px;
+  }
+  @include desktop {
+    padding: 40px 60px 40px 60px; // 1440-1200 = 240 diff in size -> 240/2 = 120 -> amount of space removed from each side of 180
+  }
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}

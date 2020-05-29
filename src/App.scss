@@ -1,0 +1,336 @@
+
+@import 'partials/variables';
+@import 'partials/mixins';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin:0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: $primary;
+}
+
+/* HEADING */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: fixed;
+  z-index:2;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $baseColorFade;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background-color: $baseColor;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    &--sub {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: $baseAlt;
+      margin: 0;
+    }
+  }
+
+  &__title--link {
+    margin: 1rem 0;
+    text-decoration:none;
+    color: $secondary;
+  }
+
+  &__link {
+    text-decoration:none;
+    color: $secondary;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    padding: 1em 0;
+    margin: 0 1em;
+    transition: border-bottom 0.2s ease-out;
+    align-items: center;
+    font-weight: bold;
+
+    &:hover {
+      border-bottom: 5px solid $baseAlt;
+      color: #e37889a8;
+    }
+  }
+
+
+}
+.active {
+  border-bottom: 5px solid $baseAlt;
+}
+.hero {
+  @include margins;
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: url('./assets/hero.png');
+  background-position: top;
+  background-size: cover;
+  box-sizing: border-box;
+  height: 183px;
+  @include tablet {
+      height: 400px;
+  }
+  @include desktop {
+      height: 670px;
+      padding: 0 60px;
+  }
+  width: 100%;
+
+
+  &::before {
+      content: " ";
+      width: inherit;
+      position: absolute;
+      height: inherit;
+      background-color: $primary;
+      opacity: 0.5;
+      color: white;
+      left: 0;
+  }
+
+  &__btn {
+    z-index: 1;
+    cursor: pointer;
+    background-color: $baseColor;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 0.70rem 3rem;
+    margin: 0.7rem;
+  }
+
+  &__header {
+    font-weight: 2.5rem;
+      z-index: 1;
+      @include tablet {
+          font-size: 4.286rem; // 60px -- Using em's for pixel perfect design
+          line-height: 4.857rem; //68 px
+      }
+      color: #ffffff;
+      width: 545px;
+      font-weight: bold;
+  }
+}
+/* MAIN */
+main {
+
+}
+section {
+  padding: 2rem 3rem;
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+section:nth-child(even) {
+  background-color: $tertiary;
+}
+.section-alt {
+  padding-right: 35px;
+}
+.section__block {
+  @include flex-column;
+}
+.section__image {
+  border-radius: 10px;
+}
+.section__holder {
+  display: flex;
+}
+.mission {
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  &-statement {
+    align-items: center;
+    justify-content: center;
+  }
+  &-paragraph {
+    width: 505px;
+    text-align: center;
+  }
+}
+.about {
+  h2 {
+    font-size: 2rem;
+    text-align: right;
+    padding-right: 5px;
+  }
+}
+
+.landing-content {
+  padding: 99px 3rem 1rem 3rem;
+  height:100%;
+  box-sizing:border-box;
+  background-size: cover;
+  background-position: center;
+}
+.landing-content--1 {
+  // background-image: url('../assets/hawaii.jpg');
+}
+.landing-content--2 {
+  // background-image: url('../assets/iceland.jpg');
+}
+.landing-content--3 {
+  // background-image: url('../assets/greece.jpg');
+}
+.landing__title {
+  text-align: center;
+  font-size: 1.75rem;
+}
+.landing__title--alt {
+  margin-top: 2rem;
+  margin-left:2rem;
+  color: #fff;
+  font-size:3rem;
+}
+.card-container {
+  display: flex;
+  /* flex-wrap: wrap;  Breaks flow on smaller resolutions would work with @media */
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  position:relative;
+  box-sizing:border-box;
+  width: 341px;
+  height: 500px;
+  margin: 2rem;
+  padding: 1rem;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: filter 0.5s ease-out;
+  background-size: cover;
+}
+.card__activities {
+  background-color: #f0f0f0;
+  padding-top: 0;
+  text-align: center;
+}
+.card__list {
+  list-style: none;
+  padding: 0;
+}
+.card__item {
+  padding: 1.5rem 21px;
+  margin: 2rem;
+  background-color: rgba(167, 167, 167, 0.16);
+}
+.card__activity-title {
+  border-bottom: 2px solid #000000;
+}
+.card__feature-title {
+  position: absolute;
+  right: 1em;
+  bottom: 0;
+  color: #fff;
+}
+.card__feature-1 {
+  border:  none;
+  background-image: url('./assets/app1.png');
+}
+.card__feature-1:hover, .card__feature-2:hover, .card__feature-3:hover {
+  filter: drop-shadow(2px 4px 6px black);
+}
+.card__feature-2 {
+  border: none;
+  background-image: url('./assets/app.png');
+}
+.card-download-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-icon {
+  padding: 15px;
+}
+.foot {
+  @include margins;
+  @include flex-column;
+  justify-content: space-between;
+  background-color: $primary;
+  color: $secondary; 
+
+  &__head {
+      @include flex-column;
+  }
+
+  &__title {
+      max-width: 150px;
+      @include mobile {
+          margin: 0.5em 0;
+          font-size: 2.462rem;
+      }
+      @include tablet {
+          margin: 0;
+          min-width: 276px;
+          font-size: 2.571rem;
+      }
+  }
+
+  &__socials {
+      display: flex;
+      min-width: 276px;
+      margin: 1em 0;
+      & .socials__icon {
+          margin-right: 32px;
+          &:last-child {
+              margin-right: 0px;
+          }
+      }
+  }
+
+  &__content {
+      @include flex-column;
+      flex-wrap: wrap;
+      @include tablet {
+          flex-wrap: nowrap;
+          flex-direction: row;
+      }
+      justify-content: space-around;
+  }
+
+  &__text {
+      min-width: 248px;
+      margin-top: 1em;
+      @include desktop {
+          min-width: 276px;
+      }
+      &-title {
+          margin: 0;
+          font-weight: 600;
+      }
+      .text__spacing {
+          display: block;
+      }
+
+      & .contact-info {
+          &__email {
+              text-decoration: none;
+              color: $secondary;
+          }
+      }
+  }
+}
+
